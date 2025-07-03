@@ -138,4 +138,46 @@ button:disabled {
     color: #333; /* Set text color back to dark for readability */
 }
 
+/* Responsive Design for Mobile Devices */
+@media (max-width: 600px) {
+    body {
+        padding: 8px;
+    }
+    h1 {
+        font-size: 2em;
+        margin: 12px 0;
+    }
+    h2 {
+        font-size: 1.2em;
+    }
+    #setup-container, #lottery-container, #draft-order-container {
+        width: 98%;
+        max-width: 100%;
+        padding: 10px;
+        margin-bottom: 12px;
+        border-radius: 10px;
+    }
+    input[type="number"], input[type="text"] {
+        width: 90%;
+        font-size: 1em;
+    }
+    button {
+        width: 100%;
+        font-size: 1em;
+        padding: 12px 0;
+        margin-top: 8px;
+    }
+    #teams-input-container .team-entry {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    #draft-order-list li, #remaining-teams-list li {
+        font-size: 1em;
+        padding: 8px 4px;
+    }
+    #winner-display {
+        font-size: 1em;
+    }
+}
+
 
