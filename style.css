@@ -64,6 +64,11 @@ input[type="number"], input[type="text"] {
     border-radius: 4px;
 }
 
+input.team-balls {
+    width: 3.5em; /* Just wide enough for double-digit numbers */
+    text-align: center;
+}
+
 button {
     background-color: #3949ab;
     color: white;
