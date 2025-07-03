@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         draftOrderList.innerHTML = '';
         draftOrder.forEach((teamName, index) => {
             const li = document.createElement('li');
-            li.textContent = `${index + 1}. ${teamName}`;
+            li.textContent = teamName;
             draftOrderList.appendChild(li);
         });
     }
