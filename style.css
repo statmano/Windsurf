@@ -1,0 +1,96 @@
+body {
+    font-family: sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #1a237e;
+}
+
+#setup-container, #lottery-container, #draft-order-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    width: 80%;
+    max-width: 600px;
+}
+
+input[type="number"], input[type="text"] {
+    padding: 8px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #3949ab;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #1a237e;
+}
+
+button:disabled {
+    background-color: #9fa8da;
+    cursor: not-allowed;
+}
+
+#teams-input-container .team-entry {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#draft-order-list {
+    list-style-type: decimal;
+    padding-left: 20px;
+}
+
+#draft-order-list li {
+    background: #e8eaf6;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+#winner-display {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #d81b60;
+}
+
+#remaining-teams-container {
+    margin-top: 20px;
+}
+
+#remaining-teams-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#remaining-teams-list li {
+    background: #f9f9f9;
+    padding: 8px;
+    border: 1px solid #eee;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+}
