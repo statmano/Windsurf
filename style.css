@@ -19,7 +19,7 @@ body {
 
 body::after {
     content: '';
-    position: absolute;
+    position: fixed; /* Changed from absolute to fixed */
     top: 66.66%;
     left: 0;
     width: 100%;
@@ -43,10 +43,10 @@ h2 {
 
 #setup-container, #lottery-container, #draft-order-container {
     /* Frosted glass effect */
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px); /* For Safari */
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.6);
 
     padding: 20px;
     border-radius: 16px; /* A more modern, rounded look */
@@ -65,6 +65,11 @@ input[type="number"], input[type="text"] {
 }
 
 input.team-balls {
+    width: 3.5em; /* Just wide enough for double-digit numbers */
+    text-align: center;
+}
+
+input#teams-count {
     width: 3.5em; /* Just wide enough for double-digit numbers */
     text-align: center;
 }
@@ -143,6 +148,104 @@ button:disabled {
     color: #333; /* Set text color back to dark for readability */
 }
 
+.teams-table {
+    width: 100%;
+    min-width: 300px;
+    max-width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+    display: table;
+}
+.teams-table thead,
+.teams-table tbody {
+    display: table-row-group;
+    width: 100%;
+}
+.teams-table tr {
+    display: table-row;
+    width: 100%;
+}
+.teams-table th, .teams-table td {
+    border: 1px solid #ccc;
+    padding: 8px 4px;
+    text-align: center;
+    background: rgba(255,255,255,0.7);
+    color: #222;
+    width: 50%;
+    box-sizing: border-box;
+}
+.teams-table th {
+    background: #3949ab;
+    color: #fff;
+    font-weight: bold;
+}
+.teams-table input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    text-align: left;
+}
+.teams-table input[type="number"],
+.teams-table input.team-balls {
+    width: 60px;
+    min-width: 30px;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    text-align: center;
+}
+
+.teams-grid {
+    display: grid;
+    grid-template-columns: 1fr 80px;
+    gap: 8px 12px;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 16px auto;
+}
+.teams-grid-header {
+    font-weight: bold;
+    background: #3949ab;
+    color: #fff;
+    padding: 8px 4px;
+    text-align: center;
+    border-radius: 4px 0 0 4px;
+    border: 1px solid #ccc;
+    border-right: none;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+.teams-grid-header + .teams-grid-header {
+    border-radius: 0 4px 4px 0;
+    border-left: none;
+    border-right: 1px solid #ccc;
+}
+.teams-grid input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 0;
+}
+.teams-grid input[type="number"],
+.teams-grid input.team-balls {
+    width: 60px;
+    min-width: 30px;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 0;
+    text-align: center;
+}
+
 /* Responsive Design for Mobile Devices */
 @media (max-width: 600px) {
     body {
@@ -166,6 +269,15 @@ button:disabled {
         width: 90%;
         font-size: 1em;
     }
+    input.team-balls,
+    input#teams-count {
+        width: 60px;
+        min-width: 0;
+        max-width: 100%;
+        font-size: 1em;
+        text-align: center;
+        margin: auto;
+    }
     button {
         width: 100%;
         font-size: 1em;
@@ -182,6 +294,34 @@ button:disabled {
     }
     #winner-display {
         font-size: 1em;
+    }
+    .teams-table th, .teams-table td {
+        padding: 6px 2px;
+        font-size: 0.95em;
+    }
+    .teams-table input[type="text"], .teams-table input[type="number"] {
+        width: 95%;
+        font-size: 1em;
+    }
+    .teams-grid {
+        grid-template-columns: 1fr 60px;
+        max-width: 98vw;
+        gap: 6px 8px;
+    }
+    .teams-grid-header {
+        font-size: 1em;
+        padding: 6px 2px;
+        height: 36px;
+    }
+    .teams-grid input[type="text"] {
+        font-size: 1em;
+        padding: 6px;
+    }
+    .teams-grid input[type="number"],
+    .teams-grid input.team-balls {
+        width: 60px;
+        font-size: 1em;
+        padding: 6px;
     }
 }
 

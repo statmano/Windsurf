@@ -23,30 +23,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function generateTeamInputs(count) {
         teamsInputContainer.innerHTML = '';
+        // Create grid container
+        const grid = document.createElement('div');
+        grid.className = 'teams-grid';
+        // Add header row
+        grid.innerHTML = `
+            <div class="teams-grid-header">Team Name</div>
+            <div class="teams-grid-header">Lottery Balls</div>
+        `;
+        // Add input rows
         for (let i = 0; i < count; i++) {
-            const teamEntry = document.createElement('div');
-            teamEntry.classList.add('team-entry');
-            teamEntry.innerHTML = `
-                <label>Team ${i + 1}:</label>
+            grid.innerHTML += `
                 <input type="text" class="team-name" placeholder="Team Name" value="Team ${i + 1}">
-                <label>Lottery Balls:</label>
                 <input type="number" class="team-balls" min="1" value="1">
             `;
-            teamsInputContainer.appendChild(teamEntry);
         }
+        teamsInputContainer.appendChild(grid);
     }
 
     startLotteryBtn.addEventListener('click', () => {
         teams = [];
-        const teamEntries = document.querySelectorAll('.team-entry');
-        teamEntries.forEach((entry, index) => {
-            const name = entry.querySelector('.team-name').value || `Team ${index + 1}`;
-            const balls = parseInt(entry.querySelector('.team-balls').value, 10);
-            if (balls >= 0) { // Allow teams with 0 balls to be listed
+        // Select all pairs of team-name and team-balls inputs in the grid
+        const teamNameInputs = document.querySelectorAll('.teams-grid .team-name');
+        const teamBallsInputs = document.querySelectorAll('.teams-grid .team-balls');
+        for (let i = 0; i < teamNameInputs.length; i++) {
+            const name = teamNameInputs[i].value || `Team ${i + 1}`;
+            const balls = parseInt(teamBallsInputs[i].value, 10);
+            if (!isNaN(balls) && balls >= 0) {
                 teams.push({ name, balls });
             }
-        });
-
+        }
         if (teams.length > 0) {
             setupContainer.style.display = 'none';
             lotteryContainer.style.display = 'block';
